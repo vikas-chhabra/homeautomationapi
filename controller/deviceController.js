@@ -53,7 +53,7 @@ exports.postDeviceStatus=(req,res)=>{
 }
 
 exports.getDevice=(req,res)=>{
-    Device.findOne({nameOfDevice: req.body.name})
+    Device.findOne({nameOfDevice: req.params.name})
     .then((device)=>{
         res.status(200).json({
             status: true,
