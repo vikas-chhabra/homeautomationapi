@@ -56,9 +56,7 @@ exports.getDevice=(req,res)=>{
     Device.findOne({nameOfDevice: req.params.name})
     .then((device)=>{
         res.status(200).json({
-            status: true,
-            device,
-            msg: `Data Fetched Success fully`
+            status: device?(device.currentStatus):(false),
         }) 
     })
     .catch((error)=>{
